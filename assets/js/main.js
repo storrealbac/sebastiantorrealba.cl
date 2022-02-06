@@ -21,12 +21,3 @@ gsap.from("#contact_me", {
     duration: 1.5,
     y: 200
 });
-
-/* Disabled 
-gsap.from("#landing_down_arrow", {
-    y: -50,
-    duration: 1,
-    yoyo: true,
-    repeat: -1
-});
-*/

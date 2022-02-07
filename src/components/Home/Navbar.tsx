@@ -17,7 +17,7 @@ const Navbar: FC<NavbarProps> = ({options}) => {
     });
 
     return(
-        <div className={`w-full grid grid-cols-${options.length} text-center`}>
+        <div className={`w-full grid grid-cols-1 xl:grid-cols-${options.length} text-center`}>
             {navbar_options}
         </div>
     );

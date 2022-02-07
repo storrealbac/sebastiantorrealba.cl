@@ -3,10 +3,15 @@ import React from 'react';
 
 import HomeFullname from "./components/Home/Fullname";
 import HomeAbout from "./components/Home/About";
+import Navbar from "./components/Home/Navbar";
 
 function App() {
+
+  const navbar_options = ["PROJECTS", "INTERESTED IN", "CONTACT ME"];
+
   return (
-    <div className="grid grid-cols-1 place-items-center h-screen w-screen">
+    <>
+    <div className="grid place-items-center h-screen">
       <div className="grid grid-cols-1 2xl:grid-cols-2 z-5">
         <HomeFullname name="SEBASTIÁN" lastname="TORREALBA"/>
         <HomeAbout title="ABOUT"> 
@@ -17,7 +22,12 @@ function App() {
             voluptates non voluptate.
         </HomeAbout>
     </div>
+
+    <Navbar options={navbar_options}/>
   </div>
+
+  <div className="h-3/4"></div>
+  </>
   );
 }
 

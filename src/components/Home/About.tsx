@@ -14,7 +14,13 @@ const HomeAbout: FC<AboutProps> = ({title, children}) => {
               {children}
             </p>
           </div>
-          <Social title="SOCIAL"/>
+
+          <Social 
+            title="SOCIAL"
+            github_url="https://github.com/storrealbac"
+            linkeding_url="#"
+            instagram_url="#"
+          />
         </div>
     );
 }

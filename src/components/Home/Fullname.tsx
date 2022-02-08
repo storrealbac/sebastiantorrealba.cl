@@ -1,5 +1,10 @@
 import React, { FC, useEffect, useRef } from "react";
+
 import gsap from "gsap";
+import { Tween } from 'react-gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 
 interface HomeFullnameProps {
     name: string;
@@ -28,12 +33,33 @@ const HomeFullname: FC<HomeFullnameProps> = ({name, lastname}): JSX.Element => {
 
     return (
         <div className="w-full p-10">
-            <h1 ref={name_element} className="font-montserrat text-white font-black text-5xl md:text-8xl xl:text-9xl text-left">
-                {name}
-            </h1>
-            <h1 ref={lastname_element} className="font-montserrat text-white font-black text-5xl md:text-8xl xl:text-9xl text-right">
-                {lastname}
-            </h1>
+            <Tween
+            to={{
+                x: '-100vw',
+                scrollTrigger: {
+                    trigger: "#name_element",
+                    start: "top top",
+                    scrub: 0.5,
+                }
+            }}>
+                <h1 id="name_element" ref={name_element} className="font-montserrat text-white font-black text-5xl md:text-8xl xl:text-9xl text-left">
+                    {name}
+                </h1>
+            </Tween>
+
+            <Tween
+            to={{
+                x: '-100vw',
+                scrollTrigger: {
+                    trigger: ["#name_element", "#lastname_element"],
+                    start: "top top",
+                    scrub: 0.5,
+                }
+            }}>
+                <h1 id="lastname_element" ref={lastname_element} className="font-montserrat text-white font-black text-5xl md:text-8xl xl:text-9xl text-right">
+                    {lastname}
+                </h1>
+            </Tween>
         </div>
     );
 }

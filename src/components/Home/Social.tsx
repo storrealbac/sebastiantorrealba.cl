@@ -1,8 +1,11 @@
-import React, {FC} from 'react';
+import React, {FC, useRef, useEffect} from 'react';
+import gsap from "gsap";
 
 import GithubLogo from "./Icons/github.svg";
 import InstagramLogo from "./Icons/instagram.svg";
 import LinkedinLogo from "./Icons/linkedin.svg";
+
+
 
 interface SocialProps {
     title: string;
@@ -12,9 +15,19 @@ interface SocialProps {
 }
 
 const Social: FC<SocialProps> = ({title, instagram_url, github_url, linkeding_url}) => {
+    const social_element = useRef(null);
+    
+    useEffect( () => {
+        gsap.from(social_element.current, {
+            opacity: 0,
+            duration: 1.5,
+            y: 100
+        });
+    });
+
     return (
-        <div className="grid grid-cols-1 place-items-center text-white">
-            <h1 className="font-bold text-2xl mt-10 text-center whitespace-pre">
+        <div ref={social_element} className="grid grid-cols-1 place-items-center text-white">
+            <h1  className="font-bold text-2xl mt-10 text-center whitespace-pre">
                 - {title} -
             </h1>
 
